@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="default_title_height">48dp</dimen>
+    <dimen name="text_size_18">18sp</dimen>
+    <dimen name="default_horizontal_margin">10dp</dimen>
+    <dimen name="text_size_14">14sp</dimen>
+</resources>
