@@ -77,31 +77,7 @@ public class LoginActivity extends AppCompatActivity {
                         Log.d(TAG, "onFailure: "+s);
                     }
                 });
-//                if (!TextUtils.isEmpty(account)&&!TextUtils.isEmpty(password)){
-//                    final BmobUser bmobUser = new BmobUser();
-//                    bmobUser.setUsername(account);
-////                    登陆密码使用MD5加密之后与注册加密后一样
-//                    bmobUser.setPassword(MD5Utils.encode(password));
-//                    bmobUser.login(LoginActivity.this, new SaveListener() {
-//                        @Override
-//                        public void onSuccess() {
-//                            Log.d(TAG, "进入: " + account + ":" + password);
-//                            User user = BmobUser.getCurrentUser(LoginActivity.this,User.class);
-//                            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
-//                            intent.putExtra("user",user);
-//                            startActivity(intent);
-//                            //登录成功
-//                            Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
-//                            finish();
-//                        }
-//
-//                        @Override
-//                        public void onFailure(int i, String s) {
-//                            Toast.makeText(LoginActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
-//                            Log.d(TAG, "onFailure: "+s);
-//                        }
-//                    });
-//                }
+
 
 
             }
