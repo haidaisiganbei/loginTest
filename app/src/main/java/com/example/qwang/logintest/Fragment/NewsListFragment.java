@@ -11,8 +11,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.qwang.logintest.Adapter.NewsListAdapter;
+import com.example.qwang.logintest.Adapter.SimpleRecycleViewItemClickListener;
 import com.example.qwang.logintest.Model.NewsResponse;
 import com.example.qwang.logintest.Presenter.NewsListPresenter;
 import com.example.qwang.logintest.R;
@@ -58,10 +60,33 @@ public class NewsListFragment extends Fragment implements IGetNewsListView{
         newsListPresenter = new NewsListPresenter(this,getArguments().getString("type"));
         initView();
         initData();
+        listener();
+    }
+
+    private void listener() {
+        mNewslist.addOnItemTouchListener(new SimpleRecycleViewItemClickListener
+                (new SimpleRecycleViewItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Toast.makeText(getContext(),"第"+position+"个",Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onItemLongClick(View view, int position) {
+
+            }
+
+            @Override
+            public void onItemDoubleClick(View view, int position) {
+
+            }
+        }));
     }
 
     private void initData() {
         newsListPresenter.getNewsList();
+
         final SwipeRefreshLayout swipeRefreshLayout=  getActivity().findViewById(R.id.srl_swipeRefreshLayout);
         //setColorSchemeResources()可以改变加载图标的颜色。
         swipeRefreshLayout.setColorSchemeResources(new int[]{R.color.colorAccent, R.color.colorPrimary});
@@ -69,6 +94,7 @@ public class NewsListFragment extends Fragment implements IGetNewsListView{
             @Override
             public void onRefresh() {
                 swipeRefreshLayout.setRefreshing(false);
+                newsListPresenter.getNewsList();
             }
         });
 
